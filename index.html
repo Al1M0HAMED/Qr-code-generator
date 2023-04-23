@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My Web Pages</title>
+    <meta charset="UTF-8">
+    <title>Full Screen Page</title>
     <style>
-      body {
+      html, body {
         margin: 0;
         padding: 0;
-      }
-      iframe,
-      img,
-      embed {
-        display: block;
         width: 100%;
         height: 100%;
-        border: none;
+        overflow: hidden;
+      }
+      
+      #content {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      
+      #image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      
+      #pdf {
+        width: 100%;
+        height: 100%;
       }
     </style>
   </head>
   <body>
-    <div id="content"></div>
-    <script>
-      // read admin's choice from a database or a file
-      const contentType = "pdf"; // replace with your own code
-      
-      switch (contentType) {
-        case "link":
-          window.location.href = "https://example.com";
-          break;
-        case "image":
-          document.getElementById("content").innerHTML =
-            '<img src="image.jpg" alt="Image" />';
-          break;
-        case "pdf":
-          document.getElementById("content").innerHTML =
-            '<embed src="document.pdf" type="application/pdf" />';
-          break;
-        default:
-          break;
-      }
-    </script>
+    <!-- Uncomment one of the sections below to display an image, PDF, or redirect to another page -->
+    
+    <!-- Display an image -->
+    <!--<div id="content"><img src="path/to/image.jpg" id="image"></div>-->
+    
+    <!-- Display a PDF -->
+    <!--<div id="content"><embed src="path/to/pdf.pdf" id="pdf"></div>-->
+    
+    <!-- Redirect to another page -->
+    <!--<script>location.href = "http://www.example.com";</script>-->
   </body>
 </html>
