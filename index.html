@@ -1,70 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>QR Code Generator</title>
-    <script src="qrious.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-        }
-
-        button {
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #3e8e41;
-        }
-
-        .qr-code {
-            margin-top: 20px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <h1>hi</h1>
-    <div class="container">
-        <h1>QR Code Generator</h1>
-        <input type="text" id="url" placeholder="Enter a URL...">
-        <button onclick="generateQRCode()">Generate QR Code</button>
-        <div class="qr-code">
-            <canvas id="qr-code-canvas"></canvas>
-        </div>
-    </div>
+  <head>
+    <title>My Web Page</title>
+  </head>
+  <body>
+    <div id="content"></div>
+    <button onclick="loadLink()">Redirect to Link</button>
+    <button onclick="loadImage()">View Image</button>
+    <button onclick="loadPDF()">View PDF</button>
     <script>
-        function generateQRCode() {
-            var url = document.getElementById("url").value;
-            if (url.trim() === "") {
-                alert("Please enter a valid URL");
-                return;
-            }
-
-            var qr = new QRious({
-                element: document.getElementById("qr-code-canvas"),
-                value: url
-            });
-        }
+      function loadLink() {
+        document.getElementById("content").innerHTML =
+          '<iframe src="https://example.com"></iframe>';
+      }
+      function loadImage() {
+        document.getElementById("content").innerHTML =
+          '<img src="image.jpg" alt="Image" />';
+      }
+      function loadPDF() {
+        document.getElementById("content").innerHTML =
+          '<embed src="document.pdf" type="application/pdf" />';
+      }
     </script>
-    <p> @powerd by Ali.dev!</p>
-</body>
+  </body>
 </html>
