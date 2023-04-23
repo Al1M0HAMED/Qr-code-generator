@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="qrious.min.js"></script>
     <title>My Web Page</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      iframe,
+      img,
+      embed {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    </style>
   </head>
   <body>
     <div id="content"></div>
-    <button onclick="loadLink()">Redirect to Link</button>
-    <button onclick="loadImage()">View Image</button>
-    <button onclick="loadPDF()">View PDF</button>
     <script>
-      function loadLink() {
-        document.getElementById("content").innerHTML =
-          '<iframe src="https://example.com"></iframe>';
-      }
-      function loadImage() {
-        document.getElementById("content").innerHTML =
-          '<img src="image.jpg" alt="Image" />';
-      }
-      function loadPDF() {
-        document.getElementById("content").innerHTML =
-          '<embed src="document.pdf" type="application/pdf" />';
+      // read admin's choice from a database or a file
+      const contentType = "pdf"; // replace with your own code
+      
+      switch (contentType) {
+        case "link":
+          window.location.href = "https://example.com";
+          break;
+        case "image":
+          document.getElementById("content").innerHTML =
+            '<img src="image.jpg" alt="Image" />';
+          break;
+        case "pdf":
+          document.getElementById("content").innerHTML =
+            '<embed src="document.pdf" type="application/pdf" />';
+          break;
+        default:
+          break;
       }
     </script>
   </body>
