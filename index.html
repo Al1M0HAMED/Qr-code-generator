@@ -1,55 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>QR Code Generator</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  </head>
-  <body>
-    <h1>QR Code Generator</h1>
+<head>
+	<title>QR Code Generator</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<h1>QR Code Generator</h1>
+		<label for="urlInput">Enter URL:</label>
+		<input type="text" id="urlInput">
+		<button id="generateBtn">Generate QR Code</button>
+		<div id="qrCode"></div>
+		<div id="downloadContainer"></div>
+	</div>
 
-    <h2>Generate QR Code for Image</h2>
-
-    <p>Enter the URL of the image you want to generate a QR code for:</p>
-
-    <input type="text" id="imgUrl" name="imgUrl"><br><br>
-    <button type="button" onclick="generateImageQRCode()">Generate QR Code</button>
-
-    <div id="img-qrcode"></div>
-
-    <script>
-      function generateImageQRCode() {
-        var imgQRCode = new QRCode(document.getElementById("img-qrcode"), {
-          width: 250,
-          height: 250
-        });
-
-        var imgUrl = document.getElementById("imgUrl").value;
-        imgQRCode.makeCode(imgUrl);
-      }
-    </script>
-
-    <br><br>
-
-    <h2>Generate QR Code for PDF</h2>
-
-    <p>Enter the URL of the PDF you want to generate a QR code for:</p>
-
-    <input type="text" id="pdfUrl" name="pdfUrl"><br><br>
-    <button type="button" onclick="generatePdfQRCode()">Generate QR Code</button>
-
-    <div id="pdf-qrcode"></div>
-
-    <script>
-      function generatePdfQRCode() {
-        var pdfQRCode = new QRCode(document.getElementById("pdf-qrcode"), {
-          width: 250,
-          height: 250
-        });
-
-        var pdfUrl = document.getElementById("pdfUrl").value;
-        pdfQRCode.makeCode(pdfUrl);
-      }
-    </script>
-  <!-- any thing -->
-  </body>
+	<script src="qrcode.min.js"></script>
+	<script src="filesaver.min.js"></script>
+	<script src="app.js"></script>
+</body>
 </html>
