@@ -1,4 +1,6 @@
-#qr-generator
+<h1 align="center">
+	qr-generator
+</h2>
 
 this is a qr generator as a web app, user is able to download the qr code as png file.
 
